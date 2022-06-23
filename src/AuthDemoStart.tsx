@@ -16,7 +16,12 @@ export function AuthDemoStart(): JSX.Element {
 
     async function handleFetchWisdomClicked() {
         //This SHOULD be hard to get, eventually.
-        const reply = await axios.get("http://localhost:4000/wisdom");
+        if (!user){
+            return
+        }
+        const idToken = await user.user.getIdToken()
+        const config = {headers: {'Authorization': 'Bearer ' + idToken}}
+        const reply = await axios.get("http://localhost:4000/wisdom", config);
         setLastAPIReply(reply.data);
     }
 
