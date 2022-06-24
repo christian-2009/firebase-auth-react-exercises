@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import {auth, googleAuthProvider} from './configureFirebase'
-import { signInWithPopup, UserCredential, User, signInWithRedirect } from "firebase/auth";
+import { signInWithPopup, User } from "firebase/auth";
 
 export function AuthDemoStart(): JSX.Element {
 
